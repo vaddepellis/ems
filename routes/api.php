@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\LeaveController;
 use App\Http\Controllers\Api\AuthenticationController;
 
 Route::get('/user', function (Request $request) {
@@ -12,4 +13,6 @@ Route::post('/login',[AuthenticationController::class,'signIn'])->name('login');
 
 Route::middleware('auth:sanctum')->group(function(){
     Route::post('/logout',[AuthenticationController::class,'signOut'])->name('logout');
+    Route::resource('leave', LeaveController::class);
+
 });

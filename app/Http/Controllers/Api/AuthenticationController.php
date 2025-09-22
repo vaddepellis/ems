@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -40,12 +41,12 @@ class AuthenticationController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Login successful',
+            'message' => 'Registered successfully',
             'data' => [
                 'user' => new UserResource($user),
                 'token' => $token->plainTextToken,
             ],
-        ], 200);
+        ], 201);
 
 
         
@@ -71,10 +72,11 @@ class AuthenticationController extends Controller
             ], 422);
         }
         $token = $user->createToken($user->name);
-        return ['status'=>'success','user'=>new UserResource($user),'token'=>$token->plainTextToken];
+        return response()->json(['status'=>'success','user'=>new UserResource($user),'token'=>$token->plainTextToken],200);
     }
     public function signOut(Request $request){
         $request->user()->tokens()->delete();
-        return response()->json(['status'=>'success','message'=>'logged out successfully !']);
+        return response()->json(['status'=>'success','message'=>'logged out successfully !'],200);
     }
+    
 }
