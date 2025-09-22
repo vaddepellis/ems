@@ -17,6 +17,7 @@ class LeaveResource extends JsonResource
     {
         
         return [
+            'id'            => $this->id,
             'reason'        => $this->reason,
             'discription'   => $this->discription,
             'from'          => $this->from,

@@ -2,10 +2,9 @@
 
 namespace App\Providers;
 
-use App\Models\Api\Leave;
-use App\Policies\LeavePolicy;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use App\Repository\Leave\LeaveInterface;
+use App\Repository\Leave\LeaveRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+       $this->app->bind(LeaveInterface::class,LeaveRepository::class);
     }
 
     /**
