@@ -10,6 +10,5 @@ interface LeaveInterface
     public function store(Request $request);
     public function show(Leave $leave);
     public function update(Request $request, Leave $leave);
+    // public function delete();
 }
-
-

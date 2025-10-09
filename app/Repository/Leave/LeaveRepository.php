@@ -101,8 +101,7 @@ class LeaveRepository implements LeaveInterface
         ]);
     }
 
-    public function update(Request $request, Leave $leave)
-    {
+    public function update(Request $request, Leave $leave){
         if (Gate::denies('update', $leave)) {
             return response()->json([
                 'status' => 'error',
@@ -153,4 +152,5 @@ class LeaveRepository implements LeaveInterface
             ],
         ]);
     }
+    
 }

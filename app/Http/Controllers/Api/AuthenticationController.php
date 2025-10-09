@@ -19,7 +19,7 @@ class AuthenticationController extends Controller
             'lastname' => 'required|min:3',
             'email'=>'required|email|unique:users',
             'mobile' => 'required|digits:10',
-            'password' => 'required|string|confirmed',
+            'password' => 'required|string',
         ]   );
 
         if ($validator->fails()) {
