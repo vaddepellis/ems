@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'santhosh',
             'lastname'=>'kumar',
             'mobile'=>'987654210',
-            'email' => 'santhoshkumar2v@gmail.com',
+            'email' => 'admin@gmail.com',
             'password' => Hash::make('password'),
             'role' => 'ADMIN',
             'created_at' => now(),
